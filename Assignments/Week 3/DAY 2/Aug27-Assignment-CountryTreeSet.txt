@@ -1,0 +1,29 @@
+find minimum/maximum element in treeset of countries , criterian can be arranging based on soring order of country name
+-----------------------------------------------------------------------------------------------------------------------
+package Linkedlist;
+import java.util.TreeSet;
+
+public class CountryTreeSet {
+    public static void main(String[] args) {
+        // Create a TreeSet of countries
+        TreeSet<String> countries = new TreeSet<>();
+
+        // Add some countries to the TreeSet
+        countries.add("India");
+        countries.add("Australia");
+        countries.add("Canada");
+        countries.add("Brazil");
+        countries.add("Denmark");
+
+        // Display the TreeSet
+        System.out.println("Countries in TreeSet: " + countries);
+
+        // Find the minimum element (first in sorted order)
+        String minCountry = countries.first();
+        System.out.println("Minimum country: " + minCountry);
+
+        // Find the maximum element (last in sorted order)
+        String maxCountry = countries.last();
+        System.out.println("Maximum country: " + maxCountry);
+    }
+}

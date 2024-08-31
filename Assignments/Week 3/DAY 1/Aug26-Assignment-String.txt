@@ -1,0 +1,18 @@
+//use String's , split() method to split given string based on ","
+
+package Privateclasses;
+
+public class StringAssig {
+
+    public static void main(String[] args) {
+        String str = "This,is,to,test";
+        
+        // Split the string based on ","
+        String[] substrings = str.split(",");
+
+        // Print each substring
+        for (String substr : substrings) {
+            System.out.println(substr);
+        }
+    }
+}

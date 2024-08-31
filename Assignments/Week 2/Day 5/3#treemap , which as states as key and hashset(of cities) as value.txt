@@ -1,0 +1,79 @@
+package P1;
+
+import java.util.*;
+
+class State implements Comparable<State> {
+    private String name;
+    private long population;
+
+    public State(String name, long population) {
+        super();
+        this.name = name;
+        this.population = population;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "State [name=" + name + ", population=" + population + "]";
+    }
+
+    @Override
+    public int compareTo(State other) {
+        return this.name.compareTo(other.name);
+    }
+}
+
+class City {
+    private String name;
+    private double totalArea;
+
+    public City(String name, double totalArea) {
+        super();
+        this.name = name;
+        this.totalArea = totalArea;
+    }
+
+    @Override
+    public String toString() {
+        return "City [name=" + name + ", totalArea=" + totalArea + "]";
+    }
+}
+
+public class HashNew {
+    public static void main(String[] args) {
+        TreeMap<State, HashSet<City>> stateCitiesMap = new TreeMap<>();
+
+       
+        State karnataka = new State("Karnataka", 2432);
+        State tamilNadu = new State("Tamil Nadu", 5432);
+        State kerala = new State("Kerala", 1439);
+
+        HashSet<City> karnatakaCities = new HashSet<>();
+        karnatakaCities.add(new City("Bangalore", 1421));
+        karnatakaCities.add(new City("Mysore", 1285));
+
+        HashSet<City> tamilNaduCities = new HashSet<>();
+        tamilNaduCities.add(new City("Chennai", 5428));
+        tamilNaduCities.add(new City("Coimbatore", 1057));
+
+        HashSet<City> keralaCities = new HashSet<>();
+        keralaCities.add(new City("Trivandrum", 1231));
+        keralaCities.add(new City("Kochi", 940));
+
+        stateCitiesMap.put(karnataka, karnatakaCities);
+        stateCitiesMap.put(tamilNadu, tamilNaduCities);
+        stateCitiesMap.put(kerala, keralaCities);
+
+        
+        for (Map.Entry<State, HashSet<City>> entry : stateCitiesMap.entrySet()) {
+            State state = entry.getKey();
+            HashSet<City> cities = entry.getValue();
+
+            System.out.println(state + " -> Cities: " + cities);
+        }
+    }
+}

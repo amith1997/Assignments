@@ -1,0 +1,68 @@
+package javaprograms;
+import java.util.*;
+import java.util.Map.Entry;
+
+class State implements Comparable<State> {
+    private String name;
+    private long population;
+
+    public State(String name, long population) {
+        this.name = name;
+        this.population = population;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public long getPopulation() {
+        return population;
+    }
+
+    @Override
+    public String toString() {
+        return "State [name=" + name + ", population=" + population + "]";
+    }
+
+    @Override
+    public int compareTo(State other) {
+        return Long.compare(this.population, other.population);
+    }
+}
+
+class City {
+    private String name;
+    private double totalArea;
+
+    public City(String name, double totalArea) {
+        this.name = name;
+        this.totalArea = totalArea;
+    }
+
+    @Override
+    public String toString() {
+        return "City [name=" + name + ", totalArea=" + totalArea + "]";
+    }
+}
+
+public class TreeMapEg {
+
+    public static void main(String[] args) {
+        Map<State, City> tm = new TreeMap<>();
+
+        // Add entries to the TreeMap
+        tm.put(new State("Karnataka", 2432), new City("Bangalore", 1421));
+        tm.put(new State("Tamil Nadu", 5432), new City("Chennai", 5428));
+        tm.put(new State("Kerala", 1439), new City("Trivandrum", 1231));
+
+        // Get the entry set of the TreeMap
+        Set<Entry<State, City>> entrySet = tm.entrySet();
+        // Iterate through the entry set
+        Iterator<Entry<State, City>> iterator = entrySet.iterator();
+
+        while (iterator.hasNext()) {
+            Entry<State, City> entry = iterator.next();
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
+    }
+}

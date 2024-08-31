@@ -1,0 +1,47 @@
+#1. Develop an application using LinkedList, and store Chat Messages(as objects), display, reverse and again display reversed LinkedList
+----------------------------------------------------------------------------------------------------------------------------------------
+
+package arraylist;
+
+import java.util.*;
+
+class Chats {
+    private String sender_name;
+    private String msg;
+
+    public Chats(String sender_name, String msg) {
+        this.sender_name = sender_name;
+        this.msg = msg;
+    }
+
+    @Override
+    public String toString() {
+        return "Chats [sender_name=" + sender_name + ", msg=" + msg + "]";
+    }
+}
+
+public class Linkedlist {
+    public static void main(String[] args) {
+        List<Chats> msgs = new LinkedList<>();
+
+        // Create objects and add 
+        msgs.add(new Chats("Si", "Hello"));
+        msgs.add(new Chats("Jie", " how are you?"));
+        msgs.add(new Chats("Kei", "Good"));
+
+        // Iterate and display 
+        System.out.println("Linked List:");
+        for (Chats chat : msgs) {
+            System.out.println(chat);
+        }
+
+        // Reverse 
+        Collections.reverse(msgs);
+
+        // iterate and display
+        System.out.println("\nReversed Linked List:");
+        for (Chats chat : msgs) {
+            System.out.println(chat);
+        }
+    }
+}

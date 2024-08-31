@@ -1,0 +1,44 @@
+#2. Use TreeSet for above application, store Chat objects, and sort based on ascending order of Particpant names.
+------------------------------------------------------------------------------------------------------------------
+package javaprograms;
+
+import java.util.TreeSet;
+
+class Chats implements Comparable<Chats> {
+
+    String name;
+    String msg;
+
+    public Chats(String name, String msg) {
+        this.name = name;
+        this.msg = msg;
+    }
+
+    @Override
+    public String toString() {
+        return "Chats [name=" + name + ", msg=" + msg + "]";
+    }
+
+    @Override
+    public int compareTo(Chats other) {
+        return this.name.compareTo(other.name); // Ascending order by name
+    }
+}
+
+public class TreesetParticpantnmaes {
+    public static void main(String[] args) {
+        TreeSet<Chats> cmsgs = new TreeSet<>();
+        cmsgs.add(new Chats("Charlie", "msg3"));
+        cmsgs.add(new Chats("Alice", "msg1"));
+        cmsgs.add(new Chats("Bob", "msg2"));
+        cmsgs.add(new Chats("David", "msg4"));
+
+        display(cmsgs);
+    }
+
+    static void display(TreeSet<Chats> cmsgs) {
+        for (Chats cmg : cmsgs) {
+            System.out.print(cmg + "\n");
+        }
+    }
+}
